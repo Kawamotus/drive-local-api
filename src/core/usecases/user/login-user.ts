@@ -1,5 +1,5 @@
-import { UserRepository } from "../../repositories/user-repository";
-import { LoginDTO } from "./user-dto";
+import { UserRepository } from "../../repositories/user-repository.js";
+import { LoginDTO } from "./user-dto.js";
 import bcrypt from "bcrypt";
 
 export class LoginUser {

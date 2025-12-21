@@ -1,7 +1,7 @@
-import { generateHashPassword } from "../../../shared/bcrypt";
-import { User } from "../../entities/user";
-import { UserRepository } from "../../repositories/user-repository";
-import { RegisterUserDTO } from "./user-dto";
+import { generateHashPassword } from "../../../shared/bcrypt.js";
+import { User } from "../../entities/user.js";
+import { UserRepository } from "../../repositories/user-repository.js";
+import { RegisterUserDTO } from "./user-dto.js";
 
 export class RegisterUser {
   constructor(private repo: UserRepository) {}

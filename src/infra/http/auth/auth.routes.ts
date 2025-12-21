@@ -1,5 +1,5 @@
 import { FastifyInstance } from "fastify";
-import { AuthController } from "./auth.controller";
+import { AuthController } from "./auth.controller.js";
 
 const controller = new AuthController();
 

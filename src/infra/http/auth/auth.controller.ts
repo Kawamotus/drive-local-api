@@ -1,13 +1,13 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { InMemoryUserRepository } from "../../../../tests/core/in-memory-user-repository";
+import { InMemoryUserRepository } from "../../../../tests/core/in-memory-user-repository.js";
 import {
   LoginDTO,
   RegisterUserDTO,
-} from "../../../core/usecases/user/user-dto";
-import { RegisterUser } from "../../../core/usecases/user/register-user";
-import { HttpStatusCode } from "../../../shared/httpStatusCode";
-import { LoginUser } from "../../../core/usecases/user/login-user";
-import { genericReply } from "../../../shared/reply";
+} from "../../../core/usecases/user/user-dto.js";
+import { RegisterUser } from "../../../core/usecases/user/register-user.js";
+import { HttpStatusCode } from "../../../shared/httpStatusCode.js";
+import { LoginUser } from "../../../core/usecases/user/login-user.js";
+import { genericReply } from "../../../shared/reply.js";
 
 const repo = new InMemoryUserRepository(); // alterar pro repo do banco
 
@@ -34,6 +34,6 @@ export class AuthController {
 
     const token = request.server.jwt.sign(user);
 
-    genericReply(reply, HttpStatusCode.Ok, user, null);
+    genericReply(reply, HttpStatusCode.Ok, token, null);
   }
 }
