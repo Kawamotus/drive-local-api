@@ -1,13 +1,13 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { InMemoryUserRepository } from "../../../../tests/core/in-memory-user-repository.js";
+import { InMemoryUserRepository } from "../../../../../tests/core/in-memory-user-repository.js";
 import {
   LoginDTO,
   RegisterUserDTO,
-} from "../../../core/usecases/user/user-dto.js";
-import { RegisterUser } from "../../../core/usecases/user/register-user.js";
-import { HttpStatusCode } from "../../../shared/httpStatusCode.js";
-import { LoginUser } from "../../../core/usecases/user/login-user.js";
-import { genericReply } from "../../../shared/reply.js";
+} from "../../../../core/usecases/user/user-dto.js";
+import { RegisterUser } from "../../../../core/usecases/user/register-user.js";
+import { HttpStatusCode } from "../../../../shared/httpStatusCode.js";
+import { LoginUser } from "../../../../core/usecases/user/login-user.js";
+import { genericReply } from "../../../../shared/reply.js";
 
 const repo = new InMemoryUserRepository(); // alterar pro repo do banco
 
