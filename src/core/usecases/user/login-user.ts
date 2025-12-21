@@ -9,7 +9,7 @@ export class LoginUser {
 
   async execute({ email, password }: LoginDTO) {
     const user = await this.repo.findByEmail(email);
-    if (!user) throw new ResourceNotFoundError("User");
+    if (!user) throw new InvalidCredentialsError();
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) throw new InvalidCredentialsError();
 

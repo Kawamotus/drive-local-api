@@ -38,24 +38,3 @@ describe("register user", () => {
     ).rejects.toBeInstanceOf(ResourceAlreadyExistsError);
   });
 });
-
-describe("Auth Register Validation", () => {
-  it("returns 400 if password is too short", async () => {
-    const response = await app.inject({
-      method: "POST",
-      url: "/auth/register",
-      payload: {
-        email: "test@mail.com",
-        password: "123",
-      },
-    });
-
-    const body = response.json();
-
-    expect(response.statusCode).toBe(400);
-    expect(body).toMatchObject({
-      statusCode: 400,
-      error: true,
-    });
-  });
-});

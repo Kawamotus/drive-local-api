@@ -36,6 +36,6 @@ export class AuthController {
 
     const token = request.server.jwt.sign({ ...user, password: null });
 
-    genericReply(reply, HttpStatusCode.Ok, token, null);
+    genericReply(reply, HttpStatusCode.Ok, { token }, null);
   }
 }
