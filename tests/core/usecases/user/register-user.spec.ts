@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { RegisterUser } from "../../../../src/core/usecases/user/register-user";
-import { InMemoryUserRepository } from "../../in-memory-user-repository";
+import { RegisterUser } from "../../../../src/core/usecases/user/register-user.js";
+import { InMemoryUserRepository } from "../../in-memory-user-repository.js";
 
 describe("register user", () => {
   it("register a user", async () => {

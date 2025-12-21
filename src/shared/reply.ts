@@ -5,7 +5,7 @@ export const genericReply = <T>(
   statusCode: number,
   data: T,
   message: string | null,
-  error = false
+  error: string | null = null
 ) => {
   return reply.code(statusCode).send({ statusCode, data, message, error });
 };
