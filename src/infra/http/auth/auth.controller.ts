@@ -19,8 +19,6 @@ export class AuthController {
     const useCase = new RegisterUser(repo);
     const user = await useCase.execute(request.body);
 
-    delete user.password;
-
     genericReply(reply, HttpStatusCode.Created, user, null);
   }
 
@@ -30,7 +28,7 @@ export class AuthController {
   ) {
     const useCase = new LoginUser(repo);
     const user = await useCase.execute(request.body);
-    delete user.password;
+    console.log("user", user);
 
     const token = request.server.jwt.sign(user);
 

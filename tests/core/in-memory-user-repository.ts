@@ -1,5 +1,5 @@
-import { User } from "../../src/core/entities/user";
-import { UserRepository } from "../../src/core/repositories/user-repository";
+import { User } from "../../src/core/entities/user.js";
+import { UserRepository } from "../../src/core/repositories/user-repository.js";
 
 export class InMemoryUserRepository implements UserRepository {
   private users: User[] = [];

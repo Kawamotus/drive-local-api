@@ -1,6 +1,6 @@
 import { UserRepository } from "../../repositories/user-repository.js";
 import { LoginDTO } from "./user-dto.js";
-import bcrypt from "bcrypt";
+import * as bcrypt from "bcrypt";
 
 export class LoginUser {
   constructor(private repo: UserRepository) {}
@@ -8,7 +8,6 @@ export class LoginUser {
   async execute({ email, password }: LoginDTO) {
     const user = await this.repo.findByEmail(email);
     if (!user) throw new Error("invalid credentials");
-
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) throw new Error("invalid credentials");
 
