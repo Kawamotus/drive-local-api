@@ -19,7 +19,12 @@ export class AuthController {
     const useCase = new RegisterUser(repo);
     const user = await useCase.execute(request.body);
 
-    genericReply(reply, HttpStatusCode.Created, user, null);
+    genericReply(
+      reply,
+      HttpStatusCode.Created,
+      { ...user, password: null },
+      null
+    );
   }
 
   async login(
@@ -28,9 +33,8 @@ export class AuthController {
   ) {
     const useCase = new LoginUser(repo);
     const user = await useCase.execute(request.body);
-    console.log("user", user);
 
-    const token = request.server.jwt.sign(user);
+    const token = request.server.jwt.sign({ ...user, password: null });
 
     genericReply(reply, HttpStatusCode.Ok, token, null);
   }
