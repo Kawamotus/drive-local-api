@@ -54,8 +54,6 @@ describe("GET /me", () => {
 
     const body = response.json();
 
-    console.log(body);
-
     expect(response.statusCode).toBe(HttpStatusCode.Ok);
     expect(body.data.email).toBe("me@mail.com");
   });
