@@ -7,7 +7,11 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/src/server.js",
-    "test": "vitest"
+    "test": "vitest",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:generate": "prisma generate",
+    "prisma:setup": "prisma migrate dev && prisma generate",
+    "prisma:reset": "prisma migrate reset"
   },
   "keywords": [],
   "author": "",
