@@ -2,6 +2,8 @@ import { describe, it, expect } from "vitest";
 import { app } from "../../src/app.js";
 import { HttpStatusCode } from "../../src/shared/httpStatusCode.js";
 
+const name = "test user";
+
 describe("Auth Register", () => {
   it("returns 201 when create user successfully", async () => {
     const response = await app.inject({
@@ -10,6 +12,7 @@ describe("Auth Register", () => {
       payload: {
         email: "new_user@mail.com",
         password: "123456",
+        name,
       },
     });
 
@@ -27,6 +30,7 @@ describe("Auth Register", () => {
       payload: {
         email: "test@mail.com",
         password: "123",
+        name,
       },
     });
 
@@ -46,6 +50,7 @@ describe("Auth Register", () => {
       payload: {
         email: "invalid",
         password: "123456",
+        name,
       },
     });
 
@@ -65,6 +70,7 @@ describe("Auth Register", () => {
       payload: {
         email: "test@mail.com",
         password: "123456",
+        name,
       },
     });
 
@@ -74,6 +80,7 @@ describe("Auth Register", () => {
       payload: {
         email: "test@mail.com",
         password: "123456",
+        name,
       },
     });
 

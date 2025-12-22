@@ -7,10 +7,11 @@ import { RegisterUserDTO } from "./user-dto.js";
 export class RegisterUser {
   constructor(private repo: UserRepository) {}
 
-  async execute({ email, password }: RegisterUserDTO): Promise<User> {
+  async execute({ email, password, name }: RegisterUserDTO): Promise<User> {
     const exists = await this.repo.findByEmail(email);
     if (exists) throw new ResourceAlreadyExistsError("User");
     const user: User = {
+      name,
       email,
       password: await generateHashPassword(password),
       id: crypto.randomUUID(),

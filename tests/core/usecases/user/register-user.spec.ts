@@ -7,6 +7,7 @@ import { ResourceAlreadyExistsError } from "../../../../src/core/errors/resource
 let repo: InMemoryUserRepository;
 let useCase: RegisterUser;
 const password = "strongPassword@1234";
+const name = "name test";
 
 beforeEach(() => {
   repo = new InMemoryUserRepository();
@@ -18,6 +19,7 @@ describe("register user", () => {
     const user = await useCase.execute({
       email: "email@example.com",
       password,
+      name,
     });
 
     expect(user.id).toBeDefined();
@@ -28,12 +30,14 @@ describe("register user", () => {
     await useCase.execute({
       email: "email@example.com",
       password,
+      name,
     });
 
     await expect(
       useCase.execute({
         email: "email@example.com",
         password,
+        name,
       })
     ).rejects.toBeInstanceOf(ResourceAlreadyExistsError);
   });

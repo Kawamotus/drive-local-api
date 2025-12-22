@@ -19,6 +19,7 @@ describe("LoginUser", () => {
     await register.execute({
       email: "test@mail.com",
       password: "123456",
+      name: "name test",
     });
 
     const user = await login.execute({
@@ -33,6 +34,7 @@ describe("LoginUser", () => {
     await register.execute({
       email: "test@mail.com",
       password: "123456",
+      name: "name test",
     });
 
     await expect(

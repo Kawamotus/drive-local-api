@@ -2,6 +2,8 @@ import { describe, it, expect } from "vitest";
 import { app } from "../../src/app.js";
 import { HttpStatusCode } from "../../src/shared/httpStatusCode.js";
 
+const name = "test user";
+
 describe("POST /auth/login", () => {
   it("logs in successfully", async () => {
     await app.inject({
@@ -10,6 +12,7 @@ describe("POST /auth/login", () => {
       payload: {
         email: "login@mail.com",
         password: "123456",
+        name,
       },
     });
 

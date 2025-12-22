@@ -27,6 +27,7 @@ export async function authRoutes(app: FastifyInstance) {
       {
         id: req.user.id,
         email: req.user.email,
+        name: req.user.name,
       },
       null
     );

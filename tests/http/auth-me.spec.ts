@@ -2,6 +2,8 @@ import { describe, it, expect } from "vitest";
 import { app } from "../../src/app.js";
 import { HttpStatusCode } from "../../src/shared/httpStatusCode.js";
 
+const name = "test user";
+
 describe("GET /me", () => {
   it("returns 401 when token is missing", async () => {
     const response = await app.inject({
@@ -27,6 +29,7 @@ describe("GET /me", () => {
       payload: {
         email: "me@mail.com",
         password: "123456",
+        name,
       },
     });
 
