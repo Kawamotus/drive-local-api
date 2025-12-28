@@ -1,8 +1,13 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import { app } from "../../src/app.js";
 import { HttpStatusCode } from "../../src/shared/httpStatusCode.js";
+import { prisma } from "../../src/infra/database/prisma/prisma.js";
 
 const name = "test user";
+
+beforeEach(async () => {
+  await prisma.user.deleteMany({});
+});
 
 describe("GET /me", () => {
   it("returns 401 when token is missing", async () => {

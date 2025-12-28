@@ -8,8 +8,9 @@ import { RegisterUser } from "../../../../core/usecases/user/register-user.js";
 import { HttpStatusCode } from "../../../../shared/httpStatusCode.js";
 import { LoginUser } from "../../../../core/usecases/user/login-user.js";
 import { genericReply } from "../../../../shared/reply.js";
+import { PrismaUserRepository } from "../../../database/prisma/modules/user-repository.js";
 
-const repo = new InMemoryUserRepository(); // alterar pro repo do banco
+const repo = new PrismaUserRepository();
 
 export class AuthController {
   async register(

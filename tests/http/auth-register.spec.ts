@@ -1,8 +1,13 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach } from "vitest";
 import { app } from "../../src/app.js";
 import { HttpStatusCode } from "../../src/shared/httpStatusCode.js";
+import { prisma } from "../../src/infra/database/prisma/prisma.js";
 
 const name = "test user";
+
+beforeEach(async () => {
+  await prisma.user.deleteMany({});
+});
 
 describe("Auth Register", () => {
   it("returns 201 when create user successfully", async () => {
